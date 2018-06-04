@@ -31,7 +31,7 @@ sub coerce {
         "if (\$acc !~ /\\A[A-Za-z0-9_-]+\\z/) { [qq(Invalid account syntax (\$acc), please only use letters/numbers/underscores/dashes)] } ",
         "else { my \$cat = CryptoExchange::Catalog->new; my \@data = \$cat->all_data; ",
         "  my \$lc = lc(\$xch); my \$rec; for (\@data) { if (defined(\$_->{code}) && \$lc eq lc(\$_->{code}) || \$lc eq lc(\$_->{name}) || \$lc eq \$_->{safename}) { \$rec = \$_; last } } ",
-        "  if (!\$rec) { ['Unknown cryptoexchange code/name/safename'] } else { [undef, qq(\$rec->{safename}/\$acc)] } ",
+        "  if (!\$rec) { ['Unknown cryptoexchange code/name/safename: ' . \$lc] } else { [undef, qq(\$rec->{safename}/\$acc)] } ",
         "} }",
     );
 

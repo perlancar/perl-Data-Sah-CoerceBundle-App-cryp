@@ -17,7 +17,7 @@ subtest "basics" => sub {
     my $res;
 
     is_deeply($c->({}), [undef, undef, {}], "hashref uncoerced");
-    is_deeply($c->("foo"), [1, "Unknown cryptoexchange code/name/safename", undef], "unknown exchange -> fail");
+    is_deeply($c->("foo"), [1, "Unknown cryptoexchange code/name/safename: foo", undef], "unknown exchange -> fail");
     is_deeply($c->("gdax/a b"), [1, "Invalid account syntax (a b), please only use letters/numbers/underscores/dashes", undef], "invalid account syntax -> fail");
 
     is_deeply($c->("GDAX"), [1, undef, "gdax/default"]);
