@@ -9,9 +9,9 @@ use warnings;
 
 sub meta {
     +{
-        v => 2,
+        v => 3,
         enable_by_default => 0,
-        might_die => 1,
+        might_fail => 1,
         prio => 50,
     };
 }
@@ -28,11 +28,11 @@ sub coerce {
     $res->{expr_coerce} = join(
         "",
         "do { my (\$xch, \$acc); $dt =~ m!(.+)/(.+)! and (\$xch, \$acc) = (\$1, \$2) or (\$xch, \$acc) = ($dt, 'default'); ",
-        "\$acc =~ /\\A[A-Za-z0-9_-]+\\z/ or die 'Invalid account syntax: ' . \$acc . ', please only use letters/numbers/underscores/dashes'; ",
-        "my \$cat = CryptoExchange::Catalog->new; my \@data = \$cat->all_data; ",
-        "my \$lc = lc(\$xch); my \$rec; for (\@data) { if (defined(\$_->{code}) && \$lc eq lc(\$_->{code}) || \$lc eq lc(\$_->{name}) || \$lc eq \$_->{safename}) { \$rec = \$_; last } } ",
-        "unless (\$rec) { die 'Unknown cryptoexchange code/name/safename: ' . \$lc } ",
-        "qq(\$rec->{safename}/\$acc) }",
+        "if (\$acc !~ /\\A[A-Za-z0-9_-]+\\z/) { [qq(Invalid account syntax (\$acc), please only use letters/numbers/underscores/dashes)] } ",
+        "else { my \$cat = CryptoExchange::Catalog->new; my \@data = \$cat->all_data; ",
+        "  my \$lc = lc(\$xch); my \$rec; for (\@data) { if (defined(\$_->{code}) && \$lc eq lc(\$_->{code}) || \$lc eq lc(\$_->{name}) || \$lc eq \$_->{safename}) { \$rec = \$_; last } } ",
+        "  if (!\$rec) { ['Unknown cryptoexchange code/name/safename'] } else { [undef, qq(\$rec->{safename}/\$acc)] } ",
+        "} }",
     );
 
     $res;
