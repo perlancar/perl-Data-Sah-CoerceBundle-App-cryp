@@ -4,11 +4,16 @@
 
 	- [ux] Tweak coercion error message to include the failing string.
 
-
-0.002   2018-06-04 (PERLANCAR)
-
 	- Update to Data::Sah::Coerce 0.025 (coerce rule module metadata
 	  version 3).
+
+
+0.002   2018-05-31 (PERLANCAR)
+
+	- [dist] Require minimum version of CryptoExchange::Catalog that
+	  has introduced codes [RT#125424].
+
+	- Forgot to add lib/Data/Sah/CoerceBundle/App/cryp.pm.
 
 
 0.001   2018-05-29 (PERLANCAR)
