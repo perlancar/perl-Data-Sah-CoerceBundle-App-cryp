@@ -1,3 +1,9 @@
+0.005   2018-06-06 (PERLANCAR)
+
+	- Add restriction that account must not exceed 64 characters in
+	  length.
+
+
 0.004   2018-06-04 (PERLANCAR)
 
         - [release] Re-release to resolve commit conflict between 0.002 and
