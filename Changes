@@ -1,3 +1,8 @@
+0.006   2019-07-25  Released-By: PERLANCAR; Urgency: medium
+
+	- Update metadata version 3->4.
+
+
 0.005   2018-06-06  Released-By: PERLANCAR
 
 	- Add restriction that account must not exceed 64 characters in
