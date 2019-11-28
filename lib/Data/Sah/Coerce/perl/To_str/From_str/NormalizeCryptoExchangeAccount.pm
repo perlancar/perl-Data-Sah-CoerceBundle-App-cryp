@@ -1,6 +1,8 @@
-package Data::Sah::Coerce::perl::str::str_normalize_cryptoexchange_account;
+package Data::Sah::Coerce::perl::To_str::From_str::NormalizeCryptoExchangeAccount;
 
+# AUTHOR
 # DATE
+# DIST
 # VERSION
 
 use 5.010001;
@@ -10,6 +12,7 @@ use warnings;
 sub meta {
     +{
         v => 4,
+        summary => 'Normalize cryptoexchange account',
         might_fail => 1,
         prio => 50,
     };
@@ -39,7 +42,7 @@ sub coerce {
 }
 
 1;
-# ABSTRACT: Normalize cryptoexchange account
+# ABSTRACT:
 
 =for Pod::Coverage ^(meta|coerce)$
 
@@ -55,7 +58,3 @@ safename and will die if name/code/safename is not listed in the catalog module.
 
 C<account> must also be [A-Za-z0-9_-]+ only and not exceed 64 characters in
 length.
-
-The rule is not enabled by default. You can enable it in a schema using e.g.:
-
- ["str", "x.perl.coerce_rules"=>["str_normalize_cryptocurrency_account"]]

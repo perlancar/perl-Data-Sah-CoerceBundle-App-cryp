@@ -1,6 +1,8 @@
 package Data::Sah::CoerceBundle::App::cryp;
 
+# AUTHOR
 # DATE
+# DIST
 # VERSION
 
 1;

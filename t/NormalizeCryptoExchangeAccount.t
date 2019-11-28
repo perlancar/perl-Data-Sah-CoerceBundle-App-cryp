@@ -10,7 +10,7 @@ use Data::Sah::Coerce qw(gen_coercer);
 subtest "basics" => sub {
     my $c = gen_coercer(
         type=>"str",
-        coerce_rules=>["str_normalize_cryptoexchange_account"],
+        coerce_rules=>["From_str::NormalizeCryptoExchangeAccount"],
         return_type => "status+err+val",
     );
 
