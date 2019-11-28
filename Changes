@@ -1,3 +1,10 @@
+0.009   2019-11-28  Released-By: PERLANCAR; Urgency: medium
+
+	- Rename coerce rule modules again, revert to using lower_case
+	  notation for the description part, because CamelCase is really,
+	  REALLY ugly when we have many words.
+
+
 0.008   2019-11-28  Released-By: PERLANCAR; Urgency: medium
 
 	- Rename coerce rule module from
