@@ -1,4 +1,4 @@
-package Data::Sah::Coerce::perl::To_str::From_str::NormalizeCryptoExchangeAccount;
+package Data::Sah::Coerce::perl::To_str::From_str::normalize_cryptoexchange_account;
 
 # AUTHOR
 # DATE
